@@ -12,11 +12,12 @@ document.querySelectorAll("li").forEach((li) => {
 const random_cuisine = get_random_cuisine()
 let fetch_result = []
 // -------------
-
+// display random cuisine's meals
 getCuisineData()
+// style the flag of that cuisine
 style_active_cuisine(random_cuisine)
 
-// When a flag is clicked, bring user to that cuisine's meals
+// When a flag is clicked, show user that cuisine's meals
 flags.forEach((flag) => {
     flag.addEventListener('click', () => {
         getCuisineData(flag.id)
