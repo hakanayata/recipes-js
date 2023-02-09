@@ -12,13 +12,11 @@ document.querySelectorAll("li").forEach((li) => {
 const random_cuisine = get_random_cuisine()
 let fetch_result = []
 // -------------
-// todo: add active class to cuisines displayed
-
-
 
 getCuisineData()
 style_active_cuisine(random_cuisine)
 
+// When a flag is clicked, bring user to that cuisine's meals
 flags.forEach((flag) => {
     flag.addEventListener('click', () => {
         getCuisineData(flag.id)
@@ -27,7 +25,7 @@ flags.forEach((flag) => {
 
 // SEARCH
 form.addEventListener('input', (e) => {
-
+    // displays searched element on each input
     const search_text = e.target.value.toLowerCase()
     const filtered_meals = fetch_result.filter(meal => meal.strMeal.toLowerCase().includes(search_text))
 
@@ -83,12 +81,13 @@ function displayCuisines(meals) {
 }
 
 function get_random_cuisine() {
+    // returns random cuisine
     const index = Math.round(Math.random() * 4)
     return cuisines[index]
 }
 
 function style_active_cuisine(cuisine) {
-
+    // gives a style to active list element
     flags.forEach(flag => {
         if (flag.classList.contains("active")) {
             flag.classList.remove("active")
